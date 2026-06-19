@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>FIREFLY PROJECT - Transmission Finale</title>
+  <style>
+    :root {
+      --bg: #020406;
+      --fg: #8df5b5;
+      --muted: #6fd99e;
+      --line: #1f3045;
+      --panel: #0a121a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(1000px 700px at 10% 5%, #0a1220 0%, transparent 65%),
+        radial-gradient(900px 600px at 90% 85%, #0f1a0f 0%, transparent 60%),
+        var(--bg);
+      color: var(--fg);
+      font: 16px/1.55 Consolas, "Courier New", monospace;
+      padding: 24px;
+    }
+    .wrap {
+      width: min(920px, 100%);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #0c141f, var(--panel));
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(20px, 4.5vw, 30px);
+      letter-spacing: 0.08em;
+    }
+    pre {
+      margin: 14px 0 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.85;
+      font-size: 0.95rem;
+      color: #bdfed3;
+    }
+    .sig { margin-top: 12px; color: var(--muted); }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main class="wrap hidden" id="victory" aria-live="polite">
+    <h1>FIREFLY PROJECT - TRANSMISSION FINALE</h1>
+    <pre>
+01000110 01100101 01101100 01101001 01100011 01101001
+01110100 01100001 01110100 01101001 01101111 01101110
+01110011 00101110 00100000 01010000 01110010 01100101
+01110011 01110001 01110101 01100101 00101110
+    </pre>
+    <p class="sig">- FF</p>
+
+    <!--
+      Tu lis le source. Evidemment.
+      C'etait aussi mon premier reflexe.
+
+      C'est fini. Tu es arrive au bout.
+      Commits, image, Morse, Vigenere, MD5: tout y est passe.
+
+      Pour valider:
+      Envoie un message a firefly.project.go@gmail.com
+      Objet: "STAGE TERMINE - [ton Nom et prenom]"
+
+      PS: Si ton manager ne sait pas encore ce que tu vaux,
+      c'est peut-etre juste un probleme d'encodage.
+      - Florian Fermat, Premier Stagiaire d'ELEPHANT, 2018. exit(0)
+    -->
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var EXPECTED_MD5 = "3c503cbe615bda8c5608e52855d571d7";
+      var rawHash = window.location.hash || "";
+
+      // Strict fragment validation before revealing any final content.
+      var strictFormat = /^#[0-9a-f]{32}$/;
+      var valid = strictFormat.test(rawHash) && rawHash.slice(1) === EXPECTED_MD5;
+
+      if (!valid) {
+        window.location.replace("./index.html");
+        return;
+      }
+
+      document.getElementById("victory").classList.remove("hidden");
+    })();
+  </script>
+</body>
+</html>
